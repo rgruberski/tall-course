@@ -59,15 +59,23 @@
     </x-modal>
 
     <x-modal class="bg-green-500" trigger="showSuccess">
-        <p class="animate-pulse text-white text-9xl font-extrabold text-center">
+        <p class="animate-pulse text-white text-9xl font-bold text-center">
             &check;
         </p>
         <p class="text-white text-5xl font-extrabold text-center mt-16">
             Great!
         </p>
-        <p class="text-white text-3xl text-center">
-            See you in your inbox.
-        </p>
+
+        @if (request()->has('verified') and request()->get('verified') == 1)
+            <p class="text-white text-3xl text-center">
+                Thanks for confirming.
+            </p>
+        @else
+            <p class="text-white text-3xl text-center">
+                See you in your inbox.
+            </p>
+        @endif
+
     </x-modal>
 
 </div>
